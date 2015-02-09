@@ -1,0 +1,7 @@
+elpa
+auto-save-list
+backup
+.python-environments
+semanticdb
+*.dat
+projectile*
