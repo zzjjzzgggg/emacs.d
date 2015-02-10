@@ -1,3 +1,4 @@
+(require 'ox-latex)
 ;; Make sure to include the latex class in you header:
 ;; #+LaTeX_CLASS: note
 (add-to-list 'org-latex-classes

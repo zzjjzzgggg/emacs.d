@@ -10,29 +10,24 @@
 
 (defconst demo-packages
   '(anzu
-    auto-complete
-    auto-complete-c-headers
-    ;anti-zenburn-theme
+    anaconda-mode
     clean-aindent-mode
     comment-dwim-2
     company
+    ;; company-anaconda
+    company-c-headers
     dtrt-indent
     duplicate-thing
     function-args
-    ;ggtags
     gnuplot-mode
     helm
     helm-projectile
-    ;; helm-gtags
     helm-swoop
     iedit
     jedi
-    ;lush-theme
     projectile
     smartparens
     sml-mode
-    ;smyx-theme
-    ;solarized-theme
     sr-speedbar
     undo-tree
     volatile-highlights
@@ -84,44 +79,26 @@
 ;; chinese font
 (set-fontset-font t 'han (font-spec :family "Microsoft Yahei" :size 16))
 
-;; this variables must be set before load helm-gtags
-;; you can change to any prefix key of your choice
-;; (setq helm-gtags-prefix-key "\C-cg")
+
 
 (add-to-list 'load-path "~/.emacs.d/custom")
 
-(require 'setup-org-octopress)
+;; this variables must be set before load helm-gtags
+;; you can change to any prefix key of your choice
+;; (setq helm-gtags-prefix-key "\C-cg")
 (require 'setup-helm)
-;;(require 'setup-helm-gtags)
-;; (require 'setup-ggtags)
 (require 'setup-editing)
-;;(require 'setup-cedet)
+(require 'setup-projectitle)
 (require 'setup-latex)
 (require 'setup-cpp)
-(require 'setup-org-export-latex) ; org-mode export latex pdf
 (require 'setup-python)
+(require 'setup-org-export-latex)	; org-mode export latex pdf
+(require 'setup-org-octopress)
+(require 'setup-sr-speedbar)
+(require 'setup-gnuplot)
 
 (windmove-default-keybindings)
 
-;; SrSpeedbar
-(require 'sr-speedbar)
-(setq speedbar-use-images nil)
-
-;; Package: projejctile
-(require 'projectile)
-(projectile-global-mode)
-(setq projectile-enable-caching t)
-
-(require 'helm-projectile)
-(helm-projectile-on)
-(setq projectile-completion-system 'helm)
-(setq projectile-indexing-method 'alien)
-
-;; gnuplot
-(require 'gnuplot-mode)
-(autoload 'gnuplot-mode "gnuplot" "gnuplot major mode" t)
-(autoload 'gnuplot-make-buffer "gnuplot" "open a buffer in gnuplot-mode" t)
-(add-to-list 'auto-mode-alist '("\\.plt\\'" . gnuplot-mode))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
