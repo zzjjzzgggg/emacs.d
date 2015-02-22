@@ -1,13 +1,20 @@
-;; setup files ending in ".tex" to open in latex-mode
-(add-to-list 'auto-mode-alist '("\\.tex\\'" . latex-mode))
-
 ;; AUCTex setup
 (setq TeX-auto-save nil)
 (setq Tex-auto-local nil)
 (setq TeX-parse-self t)
 (setq-default TeX-master nil)
+
+;; setup files ending in ".tex" to open in LaTeX-mode
+(add-to-list 'auto-mode-alist '("\\.tex\\'" . LaTeX-mode))
+
+;; turn on auto-fill and flyspell modes
 (add-hook 'LaTeX-mode-hook 'turn-on-auto-fill)
 (add-hook 'LaTeX-mode-hook 'turn-on-flyspell)
+(add-hook 'LaTeX-mode-hook 'turn-off-smartparens-mode)
+
+;; turn off company and semantic modes
+;; (add-hook 'LaTeX-mode-hook
+          ;; (lambda () (company-mode -1) (semantic-mode -1)))
 
 ;; auto fill a sentence, binded to key M-j
 (defun fill-sentence ()

@@ -1,12 +1,8 @@
 ;; GROUP: Editing -> Editing Basics
-
 (setq global-mark-ring-max 5000 ;increase mark ring to contains 5000 entries
       mark-ring-max 5000        ;increase kill ring to contains 5000 entries
-;     mode-require-final-newline t ;add a newline to end of file
-;     tab-width 4             ; default to 4 visible spaces to display a tab
+      tab-width 4               ; default tab width
 )
-
-(add-hook 'sh-mode-hook (lambda () (setq tab-width 4)))
 
 ;; allow copy from/to external applications
 (setq x-select-enable-clipboard t)
@@ -16,11 +12,14 @@
 (set-language-environment "UTF-8")
 (prefer-coding-system 'utf-8)
 
-;; use space to indent by default
+;; use space to indent by default, and stop mixed tabs and spaces
 (setq-default indent-tabs-mode nil)
+;; set default tab display width
 (setq-default tab-width 4)
 (defvaralias 'c-basic-offset 'tab-width)
+(defvaralias 'perl-indent-level 'tab-width)
 (defvaralias 'cperl-indent-level 'tab-width)
+(defvaralias 'js-indent-level 'tab-width)
 
 ;; GROUP: Editing -> Whitespace
 ;; activate whitespace-mode to view all whitespace characters
@@ -36,7 +35,7 @@
 ;; GROUP: Editing -> Killing
 (setq kill-ring-max 5000 ; increase kill-ring capacity
       kill-whole-line t  ; if NIL, kill whole line and move the next line up
-      )
+)
 
 ;; show whitespace in diff-mode
 (add-hook 'diff-mode-hook (lambda ()
@@ -140,8 +139,8 @@
 (global-set-key (kbd "C-M-%") 'anzu-query-replace-regexp)
 
 ;; PACKAGE: iedit
-(setq iedit-toggle-key-default nil)
 (require 'iedit)
+(setq iedit-toggle-key-default nil)
 (global-set-key (kbd "C-;") 'iedit-mode)
 
 ;; PACKAGE: duplicate-thing

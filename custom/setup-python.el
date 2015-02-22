@@ -1,6 +1,9 @@
-;; turn off company-mode due to confilicts
-(add-hook 'python-mode-hook (lambda () (company-mode -1)))
-(add-hook 'python-mode-hook (lambda () (semantic-mode -1)))
+
+(setq python-indent-offset 4)
+
+;; turn off company and semantic modes due to confilicts
+(add-hook 'python-mode-hook
+          (lambda () (company-mode -1) (semantic-mode -1)))
 
 (require 'jedi)
 ;; (autoload 'jedi:setup "jedi" nil t)

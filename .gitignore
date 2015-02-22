@@ -1,7 +1,9 @@
-elpa
+.python-environments
+*.dat
 auto-save-list
 backup
-.python-environments
-semanticdb
-*.dat
+elpa
+eshell
 projectile*
+session.*
+semanticdb

@@ -11,6 +11,7 @@
 (defconst demo-packages
   '(anzu
     anaconda-mode
+    bliss-theme
     clean-aindent-mode
     comment-dwim-2
     company
@@ -25,6 +26,7 @@
     helm-swoop
     iedit
     jedi
+    langtool
     projectile
     smartparens
     sml-mode
@@ -67,7 +69,7 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
-(global-linum-mode t)
+;; (global-linum-mode t)
 ;(setq column-number-mode nil)
 
 ;; global fill columns
@@ -79,10 +81,7 @@
 ;; chinese font
 (set-fontset-font t 'han (font-spec :family "Microsoft Yahei" :size 16))
 
-
-
 (add-to-list 'load-path "~/.emacs.d/custom")
-
 ;; this variables must be set before load helm-gtags
 ;; you can change to any prefix key of your choice
 ;; (setq helm-gtags-prefix-key "\C-cg")
@@ -96,6 +95,8 @@
 (require 'setup-org-octopress)
 (require 'setup-sr-speedbar)
 (require 'setup-gnuplot)
+(require 'setup-js-css)
+(require 'setup-langtool)
 
 (windmove-default-keybindings)
 
@@ -105,14 +106,16 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(tab-stop-list (quote (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96 100 104 108 112 116 120)))
  '(ansi-color-names-vector ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#ad7fa8" "#8cc4ff" "#eeeeec"])
  '(compilation-message-face (quote default))
  '(cua-global-mark-cursor-color "#2aa198")
  '(cua-normal-cursor-color "#839496")
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
- '(custom-enabled-themes (quote (zenburn)))
- '(custom-safe-themes (quote ("9dae95cdbed1505d45322ef8b5aa90ccb6cb59e0ff26fef0b8f411dfc416c552" "72407995e2f9932fda3347e44e8c3f29879c5ed88da71f06ba4887b0596959a4" "0f002f8b472e1a185dfee9e5e5299d3a8927b26b20340f10a8b48beb42b55102" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "3164a65923ef23e0f3dff9f9607b4da1e07ef1c3888d0f6878feef6c28357732" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
+ '(custom-enabled-themes (quote (bliss)))
+ '(custom-safe-themes (quote ("569dc84822fc0ac6025f50df56eeee0843bffdeceff2c1f1d3b87d4f7d9fa661" "9dae95cdbed1505d45322ef8b5aa90ccb6cb59e0ff26fef0b8f411dfc416c552" "72407995e2f9932fda3347e44e8c3f29879c5ed88da71f06ba4887b0596959a4" "0f002f8b472e1a185dfee9e5e5299d3a8927b26b20340f10a8b48beb42b55102" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "3164a65923ef23e0f3dff9f9607b4da1e07ef1c3888d0f6878feef6c28357732" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
+ '(fci-rule-color "#383838")
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-symbol-colors (--map (solarized-color-blend it "#002b36" 0.25) (quote ("#b58900" "#2aa198" "#dc322f" "#6c71c4" "#859900" "#cb4b16" "#268bd2"))))
  '(highlight-symbol-foreground-color "#93a1a1")
